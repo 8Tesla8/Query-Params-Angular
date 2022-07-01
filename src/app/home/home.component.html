@@ -1,0 +1,42 @@
+<h2>Home page</h2>
+
+<input name="options" type="radio" [value]="'product'" [(ngModel)]="page">product<br/>
+<input name="options" type="radio" [value]="'home'" [(ngModel)]="page">home<br/>
+
+Query param name: <input type="text" [(ngModel)]="paramName"> <br>
+Query param value: <input type="text" [(ngModel)]="paramValue"> <br>
+
+Query Param object: {{queryParamObj | json}} <br>
+
+<button (click)="addParam()">Add Param</button> <br> <br>
+
+
+
+<button (click)="navigateReplace()">Navigate replace</button> <br>
+<button (click)="navigateMerge()">Navigate merge</button> <br>
+<button (click)="navigatePreserve()">Navigate preserve</button> <br>
+
+<br>
+<br>
+<br>
+
+<!-- RouterLink -->
+<a [routerLink]="['/product']"
+   [queryParams]="{ filter: 'new' }"
+   queryParamsHandling="merge">
+  Go to product page
+</a>
+<br>
+
+<a [routerLink]="['/product']"
+   [queryParams]="{ agent: '007' }">
+  Go to product page with queryParams
+</a>
+<br>
+
+<a [routerLink]="['/product']"
+   [queryParams]="{ agentName: 'bond' }"
+   queryParamsHandling="merge">
+  Go to product page with queryParams and queryParamsHandling
+</a>
+<br>
